@@ -85,7 +85,7 @@ if($link === false)
 	{
     		die("ERROR: Could not connect. " . mysqli_connect_error());
 	}
-$sql = "SELECT * FROM categories ";
+$sql = "SELECT * FROM users ";
 $result = mysqli_query($link, $sql);
 if(mysqli_num_rows($result) > 0)
 	{
@@ -111,25 +111,34 @@ if(mysqli_num_rows($result) > 0)
 </table>
 
 <table class="table table-hover" padding-top="100px">
-<col width=500>
+<!--<col width=500>
 <col width=20>
-<col width=20>
+<col width=20>-->
 
     		<thead>
       		  <tr>
-        			<th>CATEGORIES</th>
-        			<th>ACTIONS</th>
+        			<th>FIRST NAME</th>
+        			<th>LAST NAME</th>
+                    <th>USER NAME</th>
+                    <th>PASSWORD</th>
+                    
      		</tr>
 			</thead>
 			<tbody id="myTable">
             <?php 
             while($row = mysqli_fetch_array($result))
             {
-                $g=$row['cat_name'];
+                $g=$row['firstname'];
+                $h=$row['lastname'];
+                $i=$row['username'];
+                $j=$row['password'];
                 ?>
             <tr>
             
                  <td> <?php echo $g ; ?></td>
+                 <td> <?php echo $h ; ?></td>
+                 <td> <?php echo $i ; ?></td>
+                 <td> <?php echo $j ; ?></td>
                  <td>
                 
                 
@@ -147,7 +156,7 @@ if(mysqli_num_rows($result) > 0)
       <td>
                 
                 
-                <form action="cdel.php" method="get">
+                <form action="udel.php" method="get">
                 <a href="gjg.php" data-toggle="tooltip" data-placement="top" title="Delete">
                 <button type="submit" name="c1" class="btn btn-default" value="<?php echo $g ?>">
                 
@@ -176,7 +185,7 @@ if(mysqli_num_rows($result) > 0)
 <button type="button" style="color:#ffffff;background-color:#3BB9FF;">Add</button>-->
 
 <!--trigger the model with a button-->
-<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Add category</button>
+<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Add User</button>
  <!-- Modal -->
  <div class="modal fade" id="myModal"  role="dialog">
     <div class="modal-dialog">
@@ -190,10 +199,18 @@ if(mysqli_num_rows($result) > 0)
         </div>
         <div class="modal-body">
             
-        <form action="add_category.php" method="post">
+        <form action="add_user.php" method="post">
         <div class="form-group">
-    <label for="category">Category name</label>
+    <label for="category"> First name</label>
     <input type="text" class="form-control" name="q1">
+    <label for="category"> Last name</label>
+    <input type="text" class="form-control" name="q2">
+    <label for="category"> User name</label>
+    <input type="text" class="form-control" name="q3">
+    <label for="category"> Password</label>
+    <input type="text" class="form-control" name="q4">
+    <label for="category"> Role</label>
+    <input type="text" class="form-control" name="q5">
   
   </div>
         </div>

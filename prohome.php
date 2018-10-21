@@ -85,7 +85,7 @@ if($link === false)
 	{
     		die("ERROR: Could not connect. " . mysqli_connect_error());
 	}
-$sql = "SELECT * FROM categories ";
+$sql = "SELECT * FROM products ";
 $result = mysqli_query($link, $sql);
 if(mysqli_num_rows($result) > 0)
 	{
@@ -111,13 +111,15 @@ if(mysqli_num_rows($result) > 0)
 </table>
 
 <table class="table table-hover" padding-top="100px">
-<col width=500>
+<!--<col width=500>
 <col width=20>
-<col width=20>
+<col width=20>-->
 
     		<thead>
       		  <tr>
-        			<th>CATEGORIES</th>
+        			<th>PRODUCTS</th>
+                    <th>CATEGORY</th>
+                    <th>PRICE</th>
         			<th>ACTIONS</th>
      		</tr>
 			</thead>
@@ -125,15 +127,20 @@ if(mysqli_num_rows($result) > 0)
             <?php 
             while($row = mysqli_fetch_array($result))
             {
-                $g=$row['cat_name'];
+                $g=$row['pro_name'];
+                $h=$row['category'];
+                $i=$row['price'];
+
                 ?>
             <tr>
             
                  <td> <?php echo $g ; ?></td>
+                 <td> <?php echo $h ; ?></td>
+                 <td> <?php echo $i ; ?></td>
                  <td>
                 
                 
-                <form action="cedit.php" method="post">
+                <form action="pedit.php" method="post">
                 <a href="gjg.php" data-toggle="tooltip" data-placement="top" title="Edit">
                 <button type="submit" name="t1" class="btn btn-default" value=" <?php echo $g ?>">
                 
@@ -147,7 +154,7 @@ if(mysqli_num_rows($result) > 0)
       <td>
                 
                 
-                <form action="cdel.php" method="get">
+                <form action="pdel.php" method="get">
                 <a href="gjg.php" data-toggle="tooltip" data-placement="top" title="Delete">
                 <button type="submit" name="c1" class="btn btn-default" value="<?php echo $g ?>">
                 
@@ -176,7 +183,7 @@ if(mysqli_num_rows($result) > 0)
 <button type="button" style="color:#ffffff;background-color:#3BB9FF;">Add</button>-->
 
 <!--trigger the model with a button-->
-<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Add category</button>
+<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Add Product</button>
  <!-- Modal -->
  <div class="modal fade" id="myModal"  role="dialog">
     <div class="modal-dialog">
@@ -190,10 +197,14 @@ if(mysqli_num_rows($result) > 0)
         </div>
         <div class="modal-body">
             
-        <form action="add_category.php" method="post">
+        <form action="add_product.php" method="post">
         <div class="form-group">
-    <label for="category">Category name</label>
+    <label for="category">Product name</label>
     <input type="text" class="form-control" name="q1">
+    <label for="category">Category</label>
+    <input type="text" class="form-control" name="q2">
+    <label for="category">Price</label>
+    <input type="text" class="form-control" name="q3">
   
   </div>
         </div>

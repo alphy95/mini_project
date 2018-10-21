@@ -9,8 +9,8 @@
       background-color: #3BB9FF;
       z-index: 9999;
       border: 0;
-      font-size: 17px !important;
-      line-height: 1.42857143 !important;
+      font-size: 12px !important;
+      line-height: 0.05 !important;
       letter-spacing: 4px;
       border-radius: 0;
       font-family: Montserrat, sans-serif;
@@ -34,7 +34,7 @@ ul{
 </head>
 <body>
 <!--dashboard-->
-<<nav class="navbar navbar-default navbar-fixed-top">
+<nav class="navbar navbar-default navbar-fixed-top">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -43,15 +43,15 @@ ul{
         <span class="icon-bar"></span>                        
       </button>
 	  
-      <a class="navbar-brand" href="#myPage" style="font-size:24px;">FORKROADS</a>
+      <a class="navbar-brand" href="#myPage">FORKROADS</a>
 	  
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="prohome.php">PRODUCTS</a></li>
+        <li><a href="#about">PRODUCTS</a></li>
         <li><a href="cathome.php">CATEGORIES</a></li>
         <li><a href="#portfolio">SALES</a></li>
-        <li><a href="userhome.php">USERS</a></li>
+        <li><a href="#pricing">USERS</a></li>
         <li><a href="#contact">SETTINGS</a></li>
 		    <li><img src="im10.png" style="height:50px;width:50px;"></li>
       </ul>
@@ -64,5 +64,3 @@ ul{
     </div>
   </div>
 </nav>
-</body>
-<html>
