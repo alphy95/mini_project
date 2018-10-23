@@ -1,20 +1,23 @@
 
 <?php
 $n=$_POST['t1'];
-/*echo $n;
+$n=trim($n);
 $conn = mysqli_connect("localhost", "root", "", "alphy");
 //Check connection
 if($conn === false)
 {
    die("ERROR: Could not connect. " . mysqli_connect_error());
 }
-$connectDb=mysqli_select_db($conn,'alphy');
-$result = mysqli_query($conn,"SELECT category,price FROM products where pro_name='$n'");
-
-while($row= mysqli_fetch_array($result))
-{
-    echo $row['price'];
-}*/  
+$s="SELECT category,price,tax,description FROM products WHERE pro_name='$n'";
+$re=mysqli_query($conn,$s);
+if($re === false){echo "not connected";}
+$row=mysqli_fetch_array($re,MYSQLI_NUM);
+$c=$row[0];
+$d=$row[1];
+//echo $c;
+//echo $d;
+$e=$row[2];
+$f=$row[3];
 ?>
 <html>
 
@@ -70,16 +73,17 @@ ul{
         <li><a href="prohome.php">PRODUCTS</a></li>
         <li><a href="cathome.php">CATEGORIES</a></li>
         <li><a href="#portfolio">SALES</a></li>
-        <li><a href="#pricing">USERS</a></li>
+        <li><a href="userhome.php">USERS</a></li>
         <li><a href="#contact">SETTINGS</a></li>
-		    <li><img src="im10.png" style="height:50px;width:50px;"></li>
+		    
       </ul>
     </div>
     <br>
     <div class="collapse navbar-collapse" id="myNavbar">
+    <img src="im10.png" style="height:50px;width:50px;">
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#about">ADMIN</a></li>
-        <li><a href="#services">LOGOUT</a></li>
+        <li><img src="admin.jpg" class="img-circle" alt="Admin image" height="42" width="42"></li>
+        <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span></a></li>
     </div>
   </div>
 </nav>
@@ -89,17 +93,28 @@ ul{
 <form action="edit_product.php" method="post">
         <div class="form-group" >
           <label for="product">Product name</label>
-            <input type="text" class="form-control" name="k1" value="<?php echo $n?>" maxlength="50"><br>
-            <label for="new_category">New name</label>
-            <input type="text" class="form-control" name="k2" maxlength="50"><br>
+            <input type="text" class="form-control" name="k1" value="<?php echo $n?>" maxlength="50" readonly><br>
+            <label for="new_category">New Product name</label>
+            <input type="text" class="form-control" name="k2" maxlength="50"value="<?php echo $n?>" ><br>
 
-            <label for="category"> New Category </label>
-            <input type="text" class="form-control" name="h1"  maxlength="50"><br>
+            <label for="category">  Category </label>
+            <input type="text" class="form-control" name="h1"  maxlength="50" value="<?php echo $c?>"><br>
 
-            <label for="price">New Price</label>
-            <input type="text" class="form-control" name="h2"  maxlength="50"><br>
+            <label for="price">Price</label>
+            <input type="text" class="form-control" name="h2"  maxlength="50" value="<?php echo $d?>"><br>
+
+            <label for="tax">Tax </label>
+            <input type="text" class="form-control" name="h3"  maxlength="50" value="<?php echo $e?>"><br>
+
+            <label for="description">Description</label>
+            <input type="text" class="form-control" name="h4"  maxlength="50" value="<?php echo $f?>"><br>
+
           
             <button type="submit" class="btn btn-default" style="background-color:#3BB9FF;">Submit</button>
+            </div>
+            </form>
+            <form action="prohome.php">
+            <div class="form-group" >
             <button class="btn btn-default float-right" onclick="cathome.php">Back</button>
         </div>
 </form>

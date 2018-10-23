@@ -1,22 +1,38 @@
 <?php
-$a=$_POST['k1'];
-$b=$_POST['k2'];
-/*echo "$a";
-echo "$b";*/
 $link = mysqli_connect("localhost", "root", "", "alphy");
- //Check connection
+//Check connection
 if($link === false)
 {
-	die("ERROR: Could not connect. " . mysqli_connect_error());
+   die("ERROR: Could not connect. " . mysqli_connect_error());
 }
-/*$k="SELECT id FROM categories WHERE cat_name='$a'";
+
+
+
+
+
+
+
+
+$a=$_POST['k1'];
+$b=$_POST['k2'];
+//echo $a;
+$a=trim($a);
+// echo $b;
+
+
+$k="SELECT id FROM categories WHERE cat_name='$a'";
 $re=mysqli_query($link,$k);
-$row=mysqli_fetch_array($re);
-$t=$row['id'];*/
-$sql="UPDATE categories SET cat_name='$b' WHERe cat_name='$a'";
+if($re === false){echo "not connected";}
+$row=mysqli_fetch_array($re,MYSQLI_NUM);
+$c=$row[0];
+echo $c;
+//echo "hello";
+// $count=mysqli_num_rows($re);
+$sql="UPDATE categories SET cat_name='$b' WHERE id='$c'";
 $result = mysqli_query($link,$sql);
-/*if($result == 1) 
+if($result == 1) 
 {
      header("location: cathome.php");
-}*/
+}
+ mysqli_close($link);
 ?>

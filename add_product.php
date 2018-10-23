@@ -8,7 +8,9 @@ if($link === false)
 $a=$_POST['q1'];
 $b=$_POST['q2'];
 $c=$_POST['q3'];
-$sql="INSERT INTO products(pro_name,category,price) VALUES('$a','$b','$c')";
+$d=$_POST['q4'];
+$e=$_POST['q5'];
+$sql="INSERT INTO products(pro_name,category,price,tax,description) VALUES('$a','$b','$c','$d','$e')";
 $result = mysqli_query($link,$sql);
 if($result == 1) 
 {

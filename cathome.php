@@ -53,14 +53,14 @@ ul{
         <li><a href="#portfolio">SALES</a></li>
         <li><a href="userhome.php">USERS</a></li>
         <li><a href="#contact">SETTINGS</a></li>
-		    <li><img src="im10.png" style="height:50px;width:50px;"></li>
       </ul>
     </div>
     <br>
     <div class="collapse navbar-collapse" id="myNavbar">
+    <img src="im10.png" style="height:50px;width:50px;">
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#about">ADMIN</a></li>
-        <li><a href="#services">LOGOUT</a></li>
+        <li><img src="admin.jpg" class="img-circle" alt="Admin image" height="42" width="42"></li>
+        <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span></a></li>
     </div>
   </div>
 </nav>
@@ -129,7 +129,7 @@ if(mysqli_num_rows($result) > 0)
                 ?>
             <tr>
             
-                 <td> <?php echo $g ; ?></td>
+                 <td> <?php echo $g; ?></td>
                  <td>
                 
                 

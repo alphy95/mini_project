@@ -1,5 +1,4 @@
 <?php
-
 $n=$_POST['t1'];
 ?>
 <?php
@@ -68,33 +67,41 @@ ul{
         <li><a href="prohome.php">PRODUCTS</a></li>
         <li><a href="cathome.php">CATEGORIES</a></li>
         <li><a href="#portfolio">SALES</a></li>
-        <li><a href="#pricing">USERS</a></li>
+        <li><a href="userhome.php">USERS</a></li>
         <li><a href="#contact">SETTINGS</a></li>
-		    <li><img src="im10.png" style="height:50px;width:50px;"></li>
+		  
       </ul>
     </div>
     <br>
     <div class="collapse navbar-collapse" id="myNavbar">
+    <img src="im10.png" style="height:50px;width:50px;">
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#about">ADMIN</a></li>
-        <li><a href="#services">LOGOUT</a></li>
+        <li><img src="admin.jpg" class="img-circle" alt="Admin image" height="42" width="42"></li>
+        <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span></a></li>
     </div>
   </div>
 </nav>
 
 <div class="container ">
 <div class="row" style="margin-top:200px; margin-left:300px; margin-right:300px; ">
-<form action="edit_category.php" method="post">
+
+<form action="edit_category.php" method="POST">
         <div class="form-group" >
-            <label for="category">Category n</label>
-            <input type="text" class="form-control" name="k1" value="<?php echo $n?>" maxlength="50"><br>
-            <label for="new_category">New name</label>
+            <label for="category">Category name</label>
+            <input type="text" class="form-control" name="k1" value="<?php echo $n?>" maxlength="50" readonly><br>
+            <label for="new_category">New Category name</label>
             <input type="text" class="form-control" name="k2" maxlength="50"><br>
 
             <button type="submit" class="btn btn-default" style="background-color:#3BB9FF;">Submit</button>
-            <button class="btn btn-default float-right" onclick="cathome.php">Back</button>
-        </div>
-</form>
+            </div>
+            </form>
+            <form action="cathome.php">
+            <div class="form-group" >
+            <button class="btn btn-default float-right" >Back</button>
+            </div>
+            </form>
+        
+
 </div>
 </div>
 </body>

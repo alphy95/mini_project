@@ -1,4 +1,26 @@
+
+<?php
+$n=$_POST['t1'];
+$n=trim($n);
+$conn = mysqli_connect("localhost", "root", "", "alphy");
+//Check connection
+if($conn === false)
+{
+   die("ERROR: Could not connect. " . mysqli_connect_error());
+}
+$s="SELECT username,password,role,email FROM users WHERE firstname='$n'";
+$re=mysqli_query($conn,$s);
+if($re === false){echo "not connected";}
+$row=mysqli_fetch_array($re,MYSQLI_NUM);
+$c=$row[0];
+$d=$row[1];
+//echo $c;
+//echo $d;
+$e=$row[2];
+$f=$row[3];
+?>
 <html>
+
 <head>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -33,8 +55,8 @@ ul{
 </style>
 </head>
 <body>
-<!--dashboard-->
-<<nav class="navbar navbar-default navbar-fixed-top">
+
+<nav class="navbar navbar-default navbar-fixed-top">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -43,7 +65,7 @@ ul{
         <span class="icon-bar"></span>                        
       </button>
 	  
-      <a class="navbar-brand" href="#myPage" style="font-size:24px;">FORKROADS</a>
+      <a class="navbar-brand" href="#myPage">FORKROADS</a>
 	  
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
@@ -53,6 +75,7 @@ ul{
         <li><a href="#portfolio">SALES</a></li>
         <li><a href="userhome.php">USERS</a></li>
         <li><a href="#contact">SETTINGS</a></li>
+		    
       </ul>
     </div>
     <br>
@@ -64,5 +87,33 @@ ul{
     </div>
   </div>
 </nav>
+
+<div class="container ">
+<div class="row" style="margin-top:200px; margin-left:300px; margin-right:300px; ">
+<form action="edit_user.php" method="post">
+        <div class="form-group" >
+          <label for="first name">First name</label>
+            <input type="text" class="form-control" name="k1" value="<?php echo $n?>" maxlength="50" ><br>
+            <label for="user name">User name</label>
+            <input type="text" class="form-control" name="k2" maxlength="50" value="<?php echo $c?>"><br>
+
+            <label for="password">Password</label>
+            <input type="text" class="form-control" name="h1"  maxlength="50" value="<?php echo $d?>"><br>    
+            
+            <label for="role">Role</label>
+            <input type="text" class="form-control" name="h2" maxlength="50" value="<?php echo $e?>"><br>
+
+            <label for="email">Email</label>
+            <input type="text" class="form-control" name="h3"  maxlength="50" value="<?php echo $f?>"><br> 
+            <button type="submit" class="btn btn-default" style="background-color:#3BB9FF;">Submit</button>
+            </div>
+            </form>
+            <form action="userhome.php">
+            <div class="form-group" >
+            <button class="btn btn-default float-right" >Back</button>
+        </div>
+</form>
+</div>
+</div>
 </body>
-<html>
+</html>

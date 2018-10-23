@@ -53,14 +53,15 @@ ul{
         <li><a href="#portfolio">SALES</a></li>
         <li><a href="userhome.php">USERS</a></li>
         <li><a href="#contact">SETTINGS</a></li>
-		    <li><img src="im10.png" style="height:50px;width:50px;"></li>
+		    
       </ul>
     </div>
     <br>
     <div class="collapse navbar-collapse" id="myNavbar">
+    <img src="im10.png" style="height:50px;width:50px;">
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#about">ADMIN</a></li>
-        <li><a href="#services">LOGOUT</a></li>
+        <li><img src="admin.jpg" class="img-circle" alt="Admin image" height="42" width="42"></li>
+        <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span></a></li>
     </div>
   </div>
 </nav>
@@ -142,7 +143,7 @@ if(mysqli_num_rows($result) > 0)
                  <td>
                 
                 
-                <form action="cedit.php" method="post">
+                <form action="uedit.php" method="post">
                 <a href="gjg.php" data-toggle="tooltip" data-placement="top" title="Edit">
                 <button type="submit" name="t1" class="btn btn-default" value=" <?php echo $g ?>">
                 
@@ -201,16 +202,18 @@ if(mysqli_num_rows($result) > 0)
             
         <form action="add_user.php" method="post">
         <div class="form-group">
-    <label for="category"> First name</label>
+    <label for="fname"> First name</label>
     <input type="text" class="form-control" name="q1">
-    <label for="category"> Last name</label>
+    <label for="lname"> Last name</label>
     <input type="text" class="form-control" name="q2">
-    <label for="category"> User name</label>
+    <label for="uname"> User name</label>
     <input type="text" class="form-control" name="q3">
-    <label for="category"> Password</label>
+    <label for="pass"> Password</label>
     <input type="text" class="form-control" name="q4">
-    <label for="category"> Role</label>
+    <label for="role"> Role</label>
     <input type="text" class="form-control" name="q5">
+    <label for="role">Email</label>
+    <input type="text" class="form-control" name="q6">
   
   </div>
         </div>
